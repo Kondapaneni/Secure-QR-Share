@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure QR Share</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header data-aos="fade-down">
+        <h1>Secure QR Share</h1>
+        <p>Share content securely with 2-minute time limit</p>
+      </header>
+
+      <main>
+        <div class="create-section" data-aos="fade-up">
+          <h2>Create Secure QR</h2>
+          <div class="input-group">
+            <textarea id="content" placeholder="Enter text or paste image URL"></textarea>
+            <div class="button-group">
+              <label for="imageUpload" class="upload-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"></path>
+                  <path d="M16 5V3"></path><path d="M8 14s1.5-2 4-2 4 2 4 2"></path>
+                  <line x1="17" y1="8" x2="17" y2="8"></line>
+                </svg>
+                Choose Image
+              </label>
+              <input type="file" id="imageUpload" accept="image/*" class="hidden">
+            </div>
+            <input type="text" id="recipient" placeholder="Recipient ID">
+            <button id="generateBtn" class="primary-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+                <path d="M3 9l2.25-4.5h13.5L21 9"></path>
+                <path d="M12 14v4"></path>
+              </svg>
+              Generate QR Code
+            </button>
+          </div>
+          <div id="qrOutput" class="qr-output"></div>
+          <div id="timer" class="timer"></div>
+        </div>
+
+        <div class="scan-section" data-aos="fade-up" data-aos-delay="200">
+          <h2>Scan QR Code</h2>
+          <div class="user-id">
+            <p>Your ID: <span id="userId"></span></p>
+          </div>
+          <button id="startScan" class="scan-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 9V6a2 2 0 0 1 2-2h3"></path>
+              <path d="M19 6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2"></path>
+              <path d="M15 2h5v5"></path>
+              <path d="M22 15v5h-5"></path>
+              <path d="M22 19v-2a2 2 0 0 0-2-2h-3"></path>
+              <path d="M2 15v4a2 2 0 0 0 2 2h2"></path>
+            </svg>
+            Start Scanning
+          </button>
+          <div id="reader" class="hidden"></div>
+          <div id="scanResult" class="scan-result"></div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
